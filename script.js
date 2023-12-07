@@ -1,14 +1,17 @@
 AOS.init();
 
-/* barra de rolagem */
+/* faq acordion*/
+document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.accordion-button');
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            buttons.forEach(otherButton => {
+                if (otherButton !== button) {
+                    otherButton.classList.remove('active');
+                }
             });
+            button.classList.toggle('active');
         });
     });
-
+});

@@ -59,13 +59,13 @@ header{
     border: 1px solid var(--white);
     padding: 8px 24px;
     border-radius: 4px;
-    color: var(--white);
     background-color: transparent;
     transition: background-color 0.8s;
 }
 .btn-faq:hover {
     border: 1px solid var(--sunsetorange);
     background-color: var(--sunsetorange);
+    color: white;
 }
 .content-main{
     width: 100%;
@@ -350,133 +350,43 @@ button {
    }
 
    /*---fim---*/
-
-   .title-faq{
-    color: whitesmoke;
-    text-align: center;
-    margin-bottom: 28px;
-    
+   .content-faq{
+    display: flex;
+    align-items: center;
+    justify-content: center;
    }
-   .faq-heading {
-    font-family: 'Poppins', sans-serif;   
-    font-weight: 400;
-    font-size: 2vw;
-    transition: text-indent 0.2s;
-    text-indent: 20px;
-    color: whitesmoke;
-    margin-bottom: 2vw;
-  }
-  
-  .faq-text {
-    font-family: 'Times New Roman', Times, serif; 
-    font-size: 1.3rem;  
-    font-weight: 400;
-    color: whitesmoke;
-    width: 90%;
-    padding-left: 2vw;
-    margin-bottom:0.5vw;
-    margin-top: 2vw;
-  }
-  
-  .faq {
-    width: 90%;
-    margin: 0 auto;
-    margin-bottom: 6vw;
-    background: #06121e;
-    border-radius: 15px;
-    position: relative;
-    border: 1px solid #06121e;
-    overflow: hidden;
-    box-shadow: 15px 15px 20px #0f2339;
-  }
-  .faq label {
-    display: block;
-    position: relative;
-    overflow: hidden;
+.title-faq{
+  text-align: center;
+}
+   .accordion {
+    display: flex;
+    flex-direction: column;
+    width:1100px;
+}
+
+.accordion-button {
+    background-color: #2b2b2b;
+    color: #fff;
+    border: solid 1px;
+    border-color: #222121;
+    padding: 10px;
+    text-align: left;
     cursor: pointer;
-    height: 56px;
-    padding-top:1px;
-    background-color: #06121e;
-    border-bottom: 1px solid #06121e;
-  }
-  
-  .faq input[type="checkbox"] {
+}
+
+.accordion-content {
     display: none;
-  }
-  
-  .faq .faq-arrow {
-    width: 5px;
-    height: 5px;
-    transition: transform 0.8s;
-    transition: transform 0.8s;
-    transition: transform 0.8s, transform 0.8s;
-    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    border-top: 2px solid whitesmoke;
-    border-right: 2px solid whitesmoke;
-    float: right;
-    position: relative;
-    top: -30px;
-    right: 27px;
-    transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  
-   .faq input[type="checkbox"]:checked + label > .faq-arrow {
-    transition: transform 0.8s;
-    transition: transform 0.8s;
-    transition: transform 0.8s, -webkit-transform 0.8s;
-    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transform: rotate(135deg);
-            transform: rotate(135deg);
-  }
-   .faq input[type="checkbox"]:checked + label {
+    padding: 10px;
+    border: 1px solid #2f2e2e;
+}
+.accordion-content p{
+    text-indent: 20px;
+    text-align: justify;
+}
+
+.accordion-button.active + .accordion-content {
     display: block;
-    background: #0b2a49 !important;
-    color: #4f7351;
-    height: 200px;
-    transition: height 0.8s;
-    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-   .faq input[type='checkbox']:not(:checked) + label {
-    display: block;
-    transition: height 0.8s;
-    height: 60px;
-    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  @media screen and (max-width: 768px) {
-    .faq-heading{
-        font-size: 3vw;
-    }
-    .faq-text{
-        font-size: 0.9rem;
-        margin-top: 10vw;
-    }
-   
-    .faq .faq-arrow {
-        top: -20px;
-    }
-  }
-  @media screen and (max-width: 1920px) {
-      
-    .faq .faq-arrow {
-        top: -60px;
-    }
-  }
-  @media screen and (max-width: 850px) {
-    .faq input[type='checkbox']:not(:checked) + label {
-        height: 40px;
-    }
-  }
-  @media screen and (max-width: 1024px) {
-    .faq input[type='checkbox']:not(:checked) + label {
-        height: 35px;
-    }
-  }
+}
   /*---fim---*/
  .formulario{
     display: flex;
@@ -552,8 +462,8 @@ input[type="submit"]{
     }
     .formulario .container {
         flex-direction: column;
-      width: 100%; /* Ajustando a largura do formulário para telas menores */
-      margin-left: 0; /* Removendo a margem à esquerda em telas menores */
+      width: 100%; 
+      margin-left: 0; 
     }
   
     .contatos {
