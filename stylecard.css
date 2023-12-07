@@ -1,0 +1,60 @@
+.card-sobre {
+    width: 300px;
+    height: 300px;
+    border-radius: 4px;
+    display: flex;
+    gap: 5px;
+    padding: .4em;
+}
+
+.card-sobre p {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .5s;
+    background: #212121;
+    border: 1px solid var(--pine);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-sobre p:hover {
+    flex: 4;
+}
+
+.card-sobre p span {
+    min-width: 19em;
+    padding: .5em;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    color: #ff568e;
+    letter-spacing: .1em;
+}
+
+.card-sobre p:hover span {
+    transform: rotate(0);
+}
+
+.img1 {
+    height: 100%;
+    background-image: url(img/pcgamer.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.img2 {
+    height: 100%;
+    background-image: url(img/Software2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.img3 {
+    height: 100%;
+    background-image: url(img/notebook.jpg);
+    background-size: cover;
+    background-position: center;
+}
