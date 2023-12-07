@@ -135,6 +135,23 @@ button {
     transform: scale(0.9);
   }
 
+  #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: -5px;
+    padding: 10px 10px;
+    background-color: #333;
+    /* Cor de fundo para o tema escuro */
+    color: #fff;
+    /* Cor de texto para o tema escuro */
+    border: none;
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+    border-radius: 20px;
+}
+
+
   @media screen and (max-width: 768px) {
     *{
       box-sizing: border-box;
