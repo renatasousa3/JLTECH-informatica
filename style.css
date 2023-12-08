@@ -71,9 +71,7 @@ a{
   margin-top: -100px;
  }
  .content-main{
-  margin-top: 60px
-  
-  
+  margin-top: 60px 
  }
 
  
@@ -361,6 +359,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 100px;
    }
 .title-faq{
   text-align: center;
@@ -395,95 +394,125 @@ button {
     display: block;
 }
   /*---fim---*/
- .formulario{
+  .centralizado {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-   
-    
- } 
- .title-form{
-    text-align: center;
-    margin-top: 0px;
- } 
-.formulario  .container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding:1vw 1vw;
-    border: 2px solid white;
-    border-radius: 10px;
-    background-color: var(--pine);
-}
-  
-
-.formulario form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1vw;
-}
-
-.formulario label {
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-.formulario select {
-    padding: 1vw;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-
-
-input[type="submit"]{
-    padding: 1vw;
-    width: 30%;
-    max-width: 100px;
-    background-color: var(--sunsetorange);
-    color: black;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-.contatos{
-    display: flex;
     align-items: center;
-    flex-direction: column;
-    margin-right: 5vw;
-    border: 2px solid white;
-    border-radius: 10px;
-    padding: 40px;
-}
-@media screen and (max-width: 768px) {
-    .formulario{
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 5vw;
-    }
-    .formulario .container {
-        flex-direction: column;
-      width: 100%; 
-      margin-left: 0; 
-    }
+    
+  }
+  .container {
+    max-width: 500px;
+    width: 100%;
+    background: #FCEDDA;
+    padding: 25px;
+    margin-bottom: 100px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
   
-    .contatos {
-     
-        margin-right: 0; /* Removendo a margem à direita em telas menores */
-    }
+  .container header {
+    font-size: 1.2rem;
+    color: #000;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .container .form {
+    margin-top: 15px;
+  }
+  
+  .form .input-box {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .input-box label {
+    color: #000;
+  }
+  
+  .form :where(.input-box input, .select-box) {
+    position: relative;
+    height: 35px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #808080;
+    margin-top: 5px;
+    border: 1px solid #EE4E34;
+    border-radius: 6px;
+    padding: 0 20px;
+    background: #FCEDDA;
+  }
+  
+  .input-box input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .form .column {
+    display: flex;
+    column-gap: 10px;
+  }
+  
+ 
+  
+  .address :where(input, .select-box) {
+    margin-top: 10px;
+  }
+  
+  .select-box select {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: #808080;
+    font-size: 0.8rem;
+    background: #FCEDDA;
+    overflow: hidden;
+  }
+  
+  .button-container{
+      text-align: center;
+  }
+  input[type="submit"] {
+    height: 40px;
+    width: 100px;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #EE4E34;
+  }
+  input[type="button"]{
+    height: 40px;
+    width: 100px;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #EE4E34;
+  }
+  
+  .form button:hover {
+    background: #EE3E34;
+  }
 
-  }
-  @media screen and (max-width: 1024px) {
-    .formulario{
-        gap: 6vw;
+  @media screen and (max-width: 768px) {
+    .form .column {
+      display: flex;
+      flex-direction: column;
+      column-gap: 10px;
     }
+    
   }
+
 /*---fim---*/
 .footer{
     display: flex;

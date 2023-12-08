@@ -62,7 +62,7 @@
 
 
   <section id="sobre" class="about">
-    <div class="container about-content">
+    <div class=" about-content">
 
       <div class="card-sobre" data-aos="fade-right" data-aos-delay="100">
         <p><span class="img1"></span></p>
@@ -347,27 +347,40 @@
 
 
   <!-- fim -->
-  <h1 class="title-form">Prencha os campos abaixo:</h1>
-  <section class="formulario" id="contato">
-    <br><br>
-    <form id="formulario" class="container">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required><br><br>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required><br><br>
-
-      <label for="opcao">Gostaria de fazer:</label>
-      <select id="opcao" name="opcao">
-        <option value="um Orçamento">Orçamento</option>
-        <option value="uma Sugestão">Sugestão</option>
-        <option value="uma Reclamação">Reclamação</option>
-        <option value="Outros">Outros</option>
-      </select><br><br>
-
-      <label for="opcao">Cidade:</label>
-      <select id="cidade" name="cidade" placeholder="cidade">
-        <option value="" disabled selected>Selecione uma cidade</option>
+  <div class="centralizado">
+  <section class="container">
+    <header>Prencha o Formulario</header>
+    <form id="formulario" class="form" action="#">
+        <div class="input-box">
+            <label>Nome</label>
+            <input required="" id="nome" name="nome" placeholder="" type="text">
+        </div>
+        <div class="column">
+            <div class="input-box">
+              <label>Telefone</label>
+              <input required="" id="telefone" name="telefone" placeholder="Digite seu número" type="telephone">
+            </div>
+            <div class="input-box">
+              <label>Email</label>
+              <input required="" id="email" name="email" placeholder="Digite seu email" type="email">
+            </div>
+        </div>
+        
+        <div class="input-box address">
+          <label for="opcao">Gostaria de fazer:</label>
+          <select id="opcao" name="opcao">
+            <option value="um Orçamento">Orçamento</option>
+            <option value="uma Sugestão">Sugestão</option>
+            <option value="uma Reclamação">Reclamação</option>
+            <option value="Outros">Outros</option>
+          </select>
+        
+       
+          <div class="column">
+            <div class="select-box">
+              
+      <select id="cidade" name="cidade">
+        <option value="" disabled selected>Selecione sua cidade</option>
         <option value="asa noste">Asa Norte</option>
         <option value="asa sul">Asa Sul</option>
         <option value="lago norte">Lago Norte </option>
@@ -377,19 +390,24 @@
         <option value="sudoeste">Sudoeste</option>
         <option value="cruzeiro">Cruzeiro</option>
         <option value="noroeste">Noroeste</option>
-      </select><br><br>
-
-
-      <label for="telefone">Telefone:</label>
-      <input type="tel" id="telefone" name="telefone" required><br><br>
-
-      <label for="textarea">Mensagem:</label>
-      <textarea name="textarea" id="textarea" cols="30" rows="10" placeholder="Informe aqui sua mensagem."></textarea>
-
-      <input type="submit" value="Enviar">
+      </select>
+      
+            </div> 
+            <label for="textarea">Mensagem:</label>
+        <textarea name="textarea" id="textarea" cols="30" rows="5" placeholder="Informe aqui sua mensagem."></textarea>  
+        </div>
+        
+        </div>
+       
+      
+        <div class="button-container">
+          <input type="submit" value="Enviar">
+          <input type="button" value="Limpar" onclick="limparFormulario()">
+        </div>
     </form>
-
   </section>
+  </div>
+
 
   <script>
     document.getElementById('formulario').addEventListener('submit', function (event) {
@@ -407,22 +425,15 @@
       window.open(urlWhatsApp, '_blank');
     });
   </script>
+  <script>
+    function limparFormulario(){
+      document.getElementById("formulario").reset();
+    }
+  </script>
   <!-- URL do whatsapp, para acrescentar a quebra de linha utilizar %0A -->
   <!-- fim -->
 
-  <footer class="footer">
-    <h1>Contato</h1>
-    <div class="contato">
-      <div class="info-contato">
-        <img src="img/mail.svg">
-        <p>josemsd@gmail.com</p>
-      </div>
-      <div class="contato">
-        <div class="info-contato">
-          <img src="img/phone.svg">
-          <p>(61)992114959</p>
-        </div>
-  </footer>
+ 
   <script src="script.js"></script>
 
 </body>
