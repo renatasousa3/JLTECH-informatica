@@ -29,50 +29,65 @@ body {
 }
 
 /* header começo */
-
 nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: -170px;
-     
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: -160px;
 }
 nav ul{
-    display: flex;
-    align-items: center;
-    gap: 4rem;
+  display: flex;
+  gap:3rem;
+  text-decoration: none;
+}
+nav li{
+  font-size: 1.2rem;
 }
 a{
-    color: white;
-}
-nav a{
-  color: var(--white);
-  transition: color 0.3s ease-in-out;
-}
-nav a:hover{
-  color: var(--sunsetorange);
-}
-header{
-    padding: 13px;
+  color: white;
 }
 .btn-faq{
-    border: 1px solid var(--white);
-    padding: 8px 24px;
-    border-radius: 4px;
-    background-color: transparent;
-    transition: background-color 0.8s;
+  border: 1px solid var(--white);
+  padding: 8px 24px;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: background-color 0.8s;
 }
 .btn-faq:hover {
-    border: 1px solid var(--sunsetorange);
-    background-color: var(--sunsetorange);
-    color: white;
+  border: 1px solid var(--sunsetorange);
+  background-color: var(--sunsetorange);
+  color: white;
 }
+.btn-faq a:hover{
+  color: #000000;
+}
+
+@media screen and (max-width: 768px) {
+ nav{
+  flex-direction: column;
+ }
+ nav ul{
+  margin-top: -100px;
+ }
+ .content-main{
+  margin-top: 60px
+  
+  
+ }
+
+ 
+}
+
+
 .content-main{
     width: 100%;
     max-width: 1200px;
     display: flex;
     align-items: center;
     padding: 0 10%;
+    
+   
 }
 .title h1{
     font-size: 2rem;
@@ -135,40 +150,15 @@ button {
     transform: scale(0.9);
   }
 
-  #back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: -5px;
-    padding: 10px 10px;
-    background-color: #333;
-    /* Cor de fundo para o tema escuro */
-    color: #fff;
-    /* Cor de texto para o tema escuro */
-    border: none;
-    cursor: pointer;
-    display: none;
-    z-index: 2;
-    border-radius: 20px;
-}
+
 
 
   @media screen and (max-width: 768px) {
-    *{
-      box-sizing: border-box;
-    }
-    nav{
-       flex-direction: column;
-      margin-top: -70px;
-      margin-bottom: 50px;
-      gap: -50px;
-    }
+ 
     .btn-faq{
       display: none;
     }
-    .logo img{
-      width: 250px;
-      height: 250px;
-    }
+
     .title h1{
       font-size: 1.5rem;
     }
