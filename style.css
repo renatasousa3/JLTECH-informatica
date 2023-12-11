@@ -47,6 +47,10 @@ nav li{
 a{
   color: white;
 }
+nav a:hover{
+  color: var(--sunsetorange);
+  transition: 0.8s;
+}
 .btn-faq{
   border: 1px solid var(--white);
   padding: 8px 24px;
@@ -148,7 +152,24 @@ button {
     transform: scale(0.9);
   }
 
-
+  #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: -10px;
+    
+    background-color: var(--pine);
+    /* Cor de fundo para o tema escuro */
+    color: #fff;
+    /* Cor de texto para o tema escuro */
+    border: none;
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+    border-radius: 50px;
+}
+#back-to-top img{
+  width: 50px;
+}
 
 
   @media screen and (max-width: 768px) {
@@ -383,8 +404,9 @@ button {
 
 .accordion-content {
     display: none;
-    padding: 10px;
+    padding: 10px ;
     border: 1px solid #2f2e2e;
+    
 }
 .accordion-content p{
     text-indent: 20px;
@@ -394,6 +416,7 @@ button {
 .accordion-button.active + .accordion-content {
     display: block;
 }
+
   /*---fim---*/
   .centralizado {
     display: flex;
@@ -517,10 +540,11 @@ button {
 /*---fim---*/
 footer{
     display: flex;
-  
+    padding: 5px 0;
     align-items: center;
     justify-content: center;
-    padding: 20px 0;
+    flex-direction: column;
+    gap: 10px;
     height: auto;
     color: cornsilk;
     background-color: #000000;
@@ -530,14 +554,23 @@ footer{
 .contato{
     display: flex;
     align-items: center;
-    gap: 10px;
+   
    
 }
 .info-contato{
     display: flex;
     align-items: center;
-    gap: 10px;
+    
 }
 .info-contato img{
     width: 30px;
+}
+
+@media screen and (max-width: 768px) {
+   .contato{
+    flex-direction: column;
+   }
+   footer img{
+     width: 70px;
+   }
 }
