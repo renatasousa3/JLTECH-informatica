@@ -283,6 +283,7 @@ button {
     margin-top: 30px;
     margin-bottom: 50px;
     overflow: hidden;
+    
   }
   
   .card a {
@@ -305,6 +306,7 @@ button {
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 600;
+    cursor: text;
   }
   
   .desc {

@@ -1,5 +1,5 @@
 .card-sobre {
-    width: 300px;
+    width: 400px;
     height: 300px;
     border-radius: 4px;
     display: flex;
@@ -40,7 +40,7 @@
 
 .img1 {
     height: 100%;
-    background-image: url(img/pcgamer.jpg);
+    background-image: url(img/card1.svg);
     background-size: cover;
     background-position: center;
 }
@@ -54,7 +54,12 @@
 
 .img3 {
     height: 100%;
-    background-image: url(img/notebook.jpg);
+    background-image: url(img/card3.svg);
     background-size: cover;
     background-position: center;
+}
+@media screen and (max-width: 768px) {
+    .card-sobre{
+        max-width: 350px;
+    }
 }
