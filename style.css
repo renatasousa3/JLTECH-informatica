@@ -94,7 +94,7 @@ a{
 .title h2{
     color: white;
     font-size: 4rem;
-    line-height: 4rem;
+    line-height: 5rem;
 }
 .title p{
     margin-bottom: 4rem;
@@ -162,6 +162,7 @@ button {
     }
     .title h2{
       font-size: 2rem;
+      line-height: 3rem;
     }
     .title p{
       font-size: 1rem;
@@ -514,9 +515,9 @@ button {
   }
 
 /*---fim---*/
-.footer{
+footer{
     display: flex;
-    
+  
     align-items: center;
     justify-content: center;
     padding: 20px 0;
@@ -524,16 +525,11 @@ button {
     color: cornsilk;
     background-color: #000000;
 }
-footer{
-    display: flex;
-    flex-direction: column;
-}
-footer p{
-    text-align: center;
-}
+
+
 .contato{
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 10px;
    
 }
