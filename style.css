@@ -43,13 +43,23 @@ nav ul{
 }
 nav li{
   font-size: 1.2rem;
+  position: relative;
 }
+nav li::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--sunsetorange);
+  transition: width 0.5s;
+}
+
 a{
   color: white;
 }
 nav a:hover{
   color: var(--sunsetorange);
-  transition: 0.8s;
+  transition: 0.5s;
 }
 .btn-faq{
   border: 1px solid var(--white);
@@ -70,15 +80,30 @@ nav a:hover{
 @media screen and (max-width: 768px) {
  nav{
   flex-direction: column;
+  
  }
  nav ul{
   margin-top: -100px;
+ 
  }
  .content-main{
   margin-top: 60px 
  }
 
  
+}
+@media screen and (max-width: 920px) {
+ 
+  nav{
+    gap: 2rem;
+  }
+  header{
+    padding: 30px;
+  }
+  .btn-faq{
+    gap: 1rem;
+   
+  }
 }
 
 
@@ -173,9 +198,10 @@ button {
 
 
   @media screen and (max-width: 768px) {
- 
+     
     .btn-faq{
       display: none;
+     
     }
 
     .title h1{
@@ -256,6 +282,7 @@ button {
 /* fim do Sobre */
 .background{
     background-color: var(--sunsetorange);
+    
 
 
 }
@@ -324,6 +351,12 @@ button {
         gap: 5px;
     }
 
+  }
+  @media screen and (max-width: 920px) {
+    .background{
+      margin: 0;
+      padding: 10px;
+    }
   }
 
   /*---fim serviços---*/
