@@ -1,456 +1,856 @@
 <!DOCTYPE html>
-<html lang="Pt-br">
+<html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <link rel="icon" href="img/Icone jlstech (1).svg" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap"
-    rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLSTech | Soluções em Informática</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="img/Icone jlstech (1).svg" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
 
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="stylecard.css">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <title>JLSTech</title>
+    <style>
+        /* --- Variáveis e Reset --- */
+        :root {
+            --sunsetorange: #E16A3D;
+            --white: #ffffff;
+            --tangerine: #FFA45D;
+            --pine: #016A6D;
+            --nileblue: #001d3d;
+            --dark-bg: #06121e;
+            --card-bg: #101c2a;
+            --text-gray: #ddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--white);
+            background: var(--dark-bg);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Header e Navegação --- */
+        header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 10%;
+        }
+
+        .logo img {
+            max-width: 150px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav li a {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav li a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--sunsetorange);
+            transition: width 0.3s;
+        }
+
+        nav li a:hover::after {
+            width: 100%;
+        }
+
+        nav li a:hover {
+            color: var(--sunsetorange);
+        }
+
+        .btn-faq {
+            border: 2px solid var(--sunsetorange);
+            padding: 8px 24px;
+            border-radius: 8px;
+            background-color: transparent;
+            transition: all 0.4s;
+            font-weight: 600;
+        }
+
+        .btn-faq:hover {
+            background-color: var(--sunsetorange);
+            color: white;
+        }
+
+        /* --- Hero Section --- */
+        .bg-home {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(6, 18, 30, 0.4), var(--dark-bg)), 
+                        url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content-main {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10%;
+        }
+
+        .title h1 {
+            font-size: 1.5rem;
+            color: var(--sunsetorange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .title h2 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .title p {
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+        }
+
+        .main-btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: transparent;
+            border: 2px solid var(--sunsetorange);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .main-btn:hover {
+            background: var(--sunsetorange);
+            box-shadow: 0 0 20px rgba(225, 106, 61, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* --- Sobre --- */
+        .about {
+            padding: 10rem 10%;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .card-sobre {
+            flex: 1;
+            display: flex;
+            gap: 10px;
+            height: 400px;
+        }
+
+        .card-sobre p {
+            flex: 1;
+            height: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--pine);
+            border-radius: 12px;
+            transition: 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-sobre p:hover {
+            flex: 3;
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(40%);
+        }
+
+        .about-description {
+            flex: 1.2;
+        }
+
+        .text-about {
+            font-size: 3rem;
+            color: var(--sunsetorange);
+            margin-bottom: 2rem;
+        }
+
+        .text-p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+            text-align: justify;
+        }
+
+        /* --- Serviços --- */
+        .services-section {
+            background-color: var(--sunsetorange);
+            padding: 6rem 10%;
+            color: var(--dark-bg);
+        }
+
+        .title-services {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            font-weight: 800;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .service-card h3 {
+            margin: 1rem 0;
+            color: var(--dark-bg);
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* --- FAQ / Acordeão --- */
+        .faq-section {
+            padding: 6rem 10%;
+        }
+
+        .title-faq {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #1a2a3a;
+            margin-bottom: 10px;
+        }
+
+        .accordion-button {
+            width: 100%;
+            padding: 20px;
+            background: var(--card-bg);
+            color: white;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .accordion-button:hover {
+            background: #1a2a3a;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: rgba(16, 28, 42, 0.5);
+            border-radius: 0 0 8px 8px;
+        }
+
+        .accordion-content p {
+            padding: 20px;
+            color: var(--text-gray);
+        }
+
+        .accordion-button.active {
+            color: var(--sunsetorange);
+            border-radius: 8px 8px 0 0;
+        }
+
+        .accordion-button.active::after {
+            content: "−";
+        }
+
+        .accordion-button::after {
+            content: "+";
+            font-size: 1.5rem;
+        }
+
+        /* --- Formulário --- */
+        .contact-section {
+            padding: 6rem 10%;
+            background: #0d1b2a;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            color: var(--dark-bg);
+        }
+
+        .form-container header {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--sunsetorange);
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-box label {
+            font-weight: 600;
+        }
+
+        .input-box input, .input-box select, .input-box textarea {
+            padding: 12px;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus, .input-box select:focus {
+            border-color: var(--sunsetorange);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-form {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-submit {
+            background: var(--sunsetorange);
+            color: white;
+        }
+
+        .btn-clear {
+            background: #eee;
+            color: #666;
+        }
+
+        .btn-submit:hover {
+            background: #ca5d34;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 4rem 10%;
+            background: #000;
+            text-align: center;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--sunsetorange);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            .title h2 {
+                font-size: 2.5rem;
+            }
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .about {
+                padding: 5rem 5%;
+            }
+            .contact-section {
+                padding: 4rem 5%;
+            }
+            .form-container {
+                padding: 1.5rem; /* Reduz o espaçamento interno no telemóvel */
+            }
+            .form-container header {
+                font-size: 1.4rem; /* Diminui o tamanho da letra para não sair da margem */
+                line-height: 1.3;
+                margin-bottom: 1.5rem;
+            }
+            .title-faq, .title-services {
+                font-size: 2rem; /* Ajusta também os outros títulos principais */
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="bg-home">
-  <header>
-    <nav>
-      <div class="logo">
-        <img src="img/JLSTECH.png" alt="">
-      </div>
-      <ul>
-        <li>
-          <a href="#home">Home</a>
-        </li>
-        <li>
-          <a href="#sobre">Sobre</a>
-        </li>
-        <li>
-          <a href="#serviços">Serviços</a>
-        </li>
-      </ul>
-      <div class="btn-faq">
-        <a href="#faq">FAQ</a>
-      </div>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <a href="#inicio" class="logo" style="text-decoration: none; color: var(--white); font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; gap: 10px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--sunsetorange)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <div><span style="color: var(--sunsetorange);">JLS</span>TECH</div>
+            </a>
+            <ul>
+                <li><a href="#inicio">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#diagnostico">Diagnóstico IA</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <a href="#faq" class="btn-faq">FAQ</a>
+        </nav>
+    </header>
 
-    <main class="content-main">
-      <div class="title">
-        <h1>
-          Bem-Vindo a JLSTECH
-        </h1><br>
-        <h2>
-          Soluções completas para manutenção de hardware e software.
-        </h2><br>
-        <p>Voçê está enfrentando problemas com o desempenho do seu computador? Seja hardware ou software, estou aqui
-          para resolver!</p>
-        <button><a href="#contato">Agende seu orçamento </a> </button>
-      </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="bg-home">
+            <div class="content-main" data-aos="fade-up">
+                <div class="title">
+                    <h1>Bem-Vindo à JLSTECH</h1>
+                    <h2>Soluções completas para manutenção de hardware e software.</h2>
+                    <p>Você está enfrentando problemas com o desempenho do seu computador? Seja hardware ou software, estou aqui para resolver!</p>
+                    <button class="main-btn" onclick="location.href='#contato'">Agende seu orçamento</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sobre -->
+        <section id="sobre" class="about">
+            <div class="about-content">
+                <div class="card-sobre" data-aos="fade-right">
+                    <p><div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=400&q=80')"></div></p>
+                    <p><div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=80')"></div></p>
+                    <p><div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&w=400&q=80')"></div></p>
+                </div>
+                <div class="about-description" data-aos="fade-left">
+                    <h2 class="text-about">Sobre Nós</h2>
+                    <p class="text-p">Sou profissional de hardware e software com mais de 27 anos de experiência. Ofereço serviços de manutenção para computadores, notebooks e redes.</p>
+                    <p class="text-p">Minha missão é garantir a funcionalidade e o desempenho dos dispositivos dos clientes, promovendo confiança e satisfação através de excelência técnica e honestidade.</p>
+                    <p class="text-p">Conte comigo para manter seus dispositivos em perfeitas condições com soluções personalizadas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Serviços -->
+        <section id="servicos" class="services-section">
+            <h2 class="title-services" data-aos="zoom-in">Nossos Serviços</h2>
+            <div class="services-container">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="icon">⚙️</div>
+                    <h3>Instalação e Configuração</h3>
+                    <p>Configuração de hardware, sistemas operacionais (Windows/Linux) e instalação de softwares essenciais.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon">🛠️</div>
+                    <h3>Suporte Técnico</h3>
+                    <p>Auxílio imediato para problemas de lentidão, travamentos e falhas de conectividade.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon">💾</div>
+                    <h3>Backup e Recuperação</h3>
+                    <p>Proteção de dados críticos e recuperação de arquivos em discos corrompidos ou formatados.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up">
+                    <div class="icon">🌐</div>
+                    <h3>Gerenciamento de Redes</h3>
+                    <p>Configuração de roteadores, repetidores e manutenção de redes locais (LAN/Wi-Fi).</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon">🎓</div>
+                    <h3>Treinamento</h3>
+                    <p>Orientações para usuários maximizarem a vida útil e eficiência de seus equipamentos.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon">📄</div>
+                    <h3>Documentação</h3>
+                    <p>Relatórios técnicos detalhados de manutenções e procedimentos para referência futura.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <h2 class="title-faq">Dúvidas Frequentes</h2>
+            <div class="accordion-container" style="max-width: 1000px; margin: 0 auto;">
+                
+                <div class="accordion-item">
+                    <button class="accordion-button">O computador não liga?</button>
+                    <div class="accordion-content">
+                        <p>Verifique se o cabo de alimentação está corretamente conectado. Teste outra tomada. Se o problema persistir, pode ser uma falha na fonte ou na placa-mãe.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button">O que causa a Tela Azul?</button>
+                    <div class="accordion-content">
+                        <p>Geralmente são erros críticos de hardware (memória RAM) ou drivers incompatíveis. É recomendado uma análise técnica para identificar o código do erro.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button">Meu notebook está esquentando muito?</button>
+                    <div class="accordion-content">
+                        <p>Pode ser acúmulo de poeira nas ventoinhas ou necessidade de troca da pasta térmica. Evite usar o notebook sobre superfícies macias como camas ou sofás.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-button">Vale a pena trocar HD por SSD?</button>
+                    <div class="accordion-content">
+                        <p>Com certeza! O SSD é até 10x mais rápido que um HD convencional, melhorando drasticamente o tempo de inicialização e abertura de programas.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Seção de Diagnóstico IA -->
+        <section id="diagnostico" class="contact-section" style="background: var(--pine);">
+            <div class="form-container" data-aos="fade-up" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <header style="color: var(--pine);">Pré-Diagnóstico Inteligente ✨</header>
+                <p style="text-align: center; margin-bottom: 20px; color: #555;">Descreva o problema do seu equipamento e a nossa Inteligência Artificial fará uma avaliação inicial rápida, indicando as possíveis causas!</p>
+                
+                <div class="input-box">
+                    <label>Qual é o problema?</label>
+                    <textarea id="ai-input" rows="4" placeholder="Ex: O meu portátil desliga-se sozinho após 10 minutos de uso e faz um ruído estranho..."></textarea>
+                </div>
+
+                <div class="btn-group" style="margin-top: 15px;">
+                    <button id="ai-btn" class="btn-form btn-submit" style="background: var(--pine);">Analisar Problema ✨</button>
+                </div>
+
+                <div id="ai-output" style="display:none; margin-top: 25px; padding: 20px; background: #eaf4f4; border-left: 5px solid var(--sunsetorange); border-radius: 8px; color: #2c3e50; line-height: 1.6;">
+                    <!-- A resposta da IA aparecerá aqui -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contato" class="contact-section">
+            <div class="form-container" data-aos="zoom-in-up">
+                <header>Solicite seu Orçamento</header>
+                <form id="whatsappForm">
+                    <div class="input-box" style="margin-bottom: 1.5rem;">
+                        <label>Nome Completo</label>
+                        <input type="text" id="nome" placeholder="Seu nome aqui" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label>Telefone / WhatsApp</label>
+                            <input type="tel" id="telefone" placeholder="(61) 99999-9999" required>
+                        </div>
+                        <div class="input-box">
+                            <label>E-mail</label>
+                            <input type="email" id="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label>Tipo de Solicitação</label>
+                            <select id="opcao">
+                                <option value="Orçamento">Orçamento</option>
+                                <option value="Suporte Técnico">Suporte Técnico</option>
+                                <option value="Dúvida">Dúvida / Sugestão</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <label>Sua Região (DF)</label>
+                            <select id="cidade">
+                                <option value="Asa Norte">Asa Norte</option>
+                                <option value="Asa Sul">Asa Sul</option>
+                                <option value="Águas Claras">Águas Claras</option>
+                                <option value="Sudoeste">Sudoeste</option>
+                                <option value="Outros">Outras Regiões</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Descrição do Problema</label>
+                        <textarea id="mensagem" rows="4" placeholder="Descreva brevemente o que está acontecendo..."></textarea>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="submit" class="btn-form btn-submit">Enviar via WhatsApp</button>
+                        <button type="reset" class="btn-form btn-clear">Limpar Campos</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
-  </div>
 
-  <section>
-    <button id="back-to-top" onclick="scrollToTop()"><img src="img/icone back to top.svg" alt=""></button>
-</section>
-
-
-  <section id="sobre" class="about">
-    <div class=" about-content">
-
-      <div class="card-sobre" data-aos="fade-right" data-aos-delay="100">
-        <p><span class="img1"></span></p>
-        <p><span class="img2"></span></p>
-        <p><span class="img3"></span></p>
-      </div>
-      <div class="about-decription" data-aos="fade-left" data-aos-delay="200">
-        <h2 class="text-about">Sobre</h2>
-        <p class="text-p">Sou profissional de hardware e software
-          com mais de 27 anos de experiência.
-          Ofereço serviços de manutenção para
-          computadores, notebooks e redes.
-          Tenho como missão garantir a
-          funcionalidade e desempenho dos
-          dispositivos dos clientes, promovendo a
-          confiança e satisfação.</p>
-        <p class="text-p">Excelência
-          técnica, honestidade nas avaliações e
-          soluções personalizadas para atender
-          às necessidades individuais de cada
-          cliente.
-          Conte comigo para manter seus
-          dispositivos em perfeitas condições.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="background" id="serviços">
-    <h1 class="title-serviços">Serviços</h1>
-
-    <div class="serviços">
-      <div class="card" data-aos="fade-up" data-aos-delay="150">
-        <div class="image">
-          <img src="img/1.svg" />
-        </div>
-        <div class="content">
-          <a href="#">
-            <span class="title">
-              Instalação e configuração
-            </span>
-          </a>
-
-          <p class="desc">
-            Configurar hardware, instalar sistemas operacionais, softwares e aplicativos.
-          </p>
-        </div>
-      </div>
-
-
-      <div class="card" data-aos="fade-up" data-aos-delay="250">
-        <div class="image">
-          <img src="img/suporte tecnico.svg">
-        </div>
-        <div class="content">
-          <a href="#">
-            <span class="title">
-              Suporte Técnico
-            </span>
-          </a>
-
-          <p class="desc">
-            Auxiliar os usuários com problemas de hardware, software, rede e conectividade.
-          </p>
-        </div>
-      </div>
-
-
-
-      <div class="card" data-aos="fade-up" data-aos-delay="400">
-        <div class="image">
-          <img src="img/backup.svg">
-        </div>
-        <div class="content">
-          <a href="#">
-            <span class="title">
-              Backup e Recuperação de Dados
-            </span>
-          </a>
-
-          <p class="desc">
-            Configurar sistemas de Backup e ajudar na recuperação de dados em caso de perda ou corrupção.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- fim de uma div -->
-
-
-    <div class="serviços">
-
-      <div class="card" data-aos="fade-up" data-aos-delay="150">
-        <div class="image">
-          <img src="img/treino e orientação.svg" />
-        </div>
-        <div class="content">
-          <a href="#">
-            <span class="title">
-              Treinamento e Orientação
-            </span>
-          </a>
-
-          <p class="desc">
-            Oferecer treinamento aos usuarios para maximizar a eficiência no uso de sistemas e software.
-          </p>
-        </div>
-      </div>
-
-      <div class="card" data-aos="fade-up" data-aos-delay="250">
-        <div class="image">
-          <img src="img/redes lans.svg" />
-        </div>
-        <div class="content">
-          <a href="#">
-            <span class="title">
-              Gerenciamento de Redes
-            </span>
-          </a>
-          <p class="desc">
-            Configurar e manter redes locais (LANs), identificar e corrigir problemas de conectividade, etc.
-          </p>
-        </div>
-      </div>
-
-      <div class="card" data-aos="fade-up" data-aos-delay="400">
-        <div class="image">
-          <img src="img/documentação.svg" />
-        </div>
-        <div class="content">
-          <a href="#">
-            <span class="title">
-              Documentação
-            </span>
-          </a>
-
-          <p class="desc">
-            Manter registros de problemas, soluções aplicadas, configurações e procedimentos para referencia futura.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- fim de uma div -->
-
-  </section>
-
-
-  <section class="display-card" data-aos="fade-up-right">
-    <div class="card-2">
-      <div class="content">
-        <h3 class="desc-2">Quais são os benefícios de se fazer manutenções?</h3>
-        <div class="info">
-          <p>
-            A identificação e correção de falhas em componentes de hardware podem ajudar a prolongar a vida útil dos
-            dispositivos, economizando dinheiro em substituições frequentes.
-          </p> <br>
-          <p>
-            A manutenção preventiva ajuda a evitar problemas antes que ocorram, diminuindo a probabilidade de falhas
-            inesperadas e aumentando a confiabilidade do hardware.
-          </p> <br>
-          <p>
-            A aplicação de patches de segurança e atualizações regulares ajuda a proteger o software contra
-            vulnerabilidades conhecidas, seguras ou risco de ataques cibernéticos.
-          </p><br>
-          <p>
-            As atualizações de software frequentemente incluem otimizações de desempenho, melhorando a eficiência e a
-            velocidade do sistema.
-          </p> <br>
-        </div>
-      </div>
-    </div>
-  </section>
- 
-
-  <h1 class="title-faq">Problemas comuns</h1>
-  <div id="faq" class="content-faq">
-  
-    <div class="accordion">
-      <button class="accordion-button">Computador não liga?</button>
-      <div class="accordion-content">
-        <p>Verifique se o cabo de alimentação está corretamente conectado à tomada e ao computador. Teste em outra
-          tomada funcional. Verifique se o botão de alimentação está funcionando. Se persistir, pode ser um problema na
-          fonte de alimentação ou na placa-mãe, exigindo assistência técnica.</p>
-      </div>
-      <button class="accordion-button">Tela azul?</button>
-      <div class="accordion-content">
-        <p>Anote a mensagem de erro exibida na tela azul. Pode ser causada por problemas de hardware ou software. Tente
-          reiniciar o computador. Se o problema persistir, pode ser necessário restaurar o sistema para um ponto
-          anterior ou reconfigurar o sistema operacional.
-        </p>
-      </div>
-      <button class="accordion-button">Computador lento?</button>
-      <div class="accordion-content">
-        <p>Execute uma verificação de malware/vírus. Limpe arquivos temporários e desnecessários. Atualize drivers e
-          software. Considere aumentar a RAM ou atualizar o disco rígido para um SSD para melhorar a velocidade.</p>
-      </div>
-    
-
-    <button class="accordion-button">Problemas de conectividade?</button>
-    <div class="accordion-content">
-      <p>Verifique se os drivers de rede estão atualizados. Reinicie o roteador ou modem. Verifique se o cabo de rede
-        está corretamente conectado. Para conexões Wi-Fi, verifique se a senha está correta e reinicie o roteador.</p>
-    </div>
-  
-
-  <button class="accordion-button">Software travando?</button>
-  <div class="accordion-content">
-    <p>Verifique se há atualizações de software disponíveis. Execute uma verificação de malware/vírus. Considere
-      reinstalar o aplicativo com problemas.
-      Problemas comuns em notebooks e suas soluções:</p>
-  </div>
-  
-
-  <button class="accordion-button">Bateria não carrega?</button>
-  <div class="accordion-content">
-    <p> Verifique se o adaptador de energia está funcionando corretamente. Limpe os conectores da bateria. Se possível,
-      remova a bateria e reinstale-a. Se persistir, pode ser um problema com a bateria ou o circuito de carregamento.
-    </p>
-  </div>
-  
-
-  <button class="accordion-button">Superaquecimento?</button>
-  <div class="accordion-content">
-    <p> Limpe as entradas de ar do notebook para remover poeira e detritos. Use uma base de resfriamento. Evite bloquear
-      as saídas de ar do notebook.</p>
-  </div>
-  
-
-  <button class="accordion-button">Teclado ou touchpad não funcionam?</button>
-  <div class="accordion-content">
-    <p> Reinicie o notebook. Verifique se há drivers desatualizados ou corrompidos. Em casos extremos, pode ser
-      necessário substituir o teclado ou touchpad.</p>
-  </div>
-  
-
-  <button class="accordion-button">Tela quebrada ou danificada?</button>
-  <div class="accordion-content">
-    <p> Em casos de danos físicos, geralmente é necessária a substituição da tela por um profissional.</p>
-  </div>
-  
-
-  <button class="accordion-button">Portas USB não funcionam?</button>
-  <div class="accordion-content">
-    <p>Reinicie o notebook. Verifique se os drivers USB estão atualizados. Tente conectar os dispositivos USB em
-      diferentes portas.</p>
-  </div>
-  
-
-  <button class="accordion-button">Atualizações de driver?</button>
-  <div class="accordion-content">
-    <p>Se um novo driver causou problemas, tente voltar para uma versão anterior do driver. Visite o site do fabricante
-      para obter os drivers mais recentes e compatíveis.</p>
-  </div>
-  
-
-  <button class="accordion-button">Disco rígido barulhento?</button>
-  <div class="accordion-content">
-    <p>Faça backup dos dados imediatamente. O ruído pode indicar um disco rígido com falha iminente. Substitua o disco
-      rígido o mais rápido possível.</p>
-  </div>
-  
-
-  <button class="accordion-button">Problemas de tela azul?</button>
-  <div class="accordion-content">
-    <p>Reinicie o notebook. Verifique se os drivers USB estão atualizados. Tente conectar os dispositivos USB em
-      diferentes portas.</p>
-  </div>
-  
-
-  <button class="accordion-button">Performance lenta?</button>
-  <div class="accordion-content">
-    <p>Execute as mesmas medidas que em um computador lento: verificação de malware, limpeza de arquivos desnecessários
-      e atualização de software.</p>
-  </div>
-  
-
-  <button class="accordion-button">Problemas de carregamento?</button>
-  <div class="accordion-content">
-    <p>Além de verificar a bateria e o adaptador de energia, verifique se a entrada de energia no notebook não está danificada. Em casos extremos, pode ser necessário substituir a entrada de energia.
-      Estas soluções são um bom ponto de partida, mas lembre-se de que problemas mais complexos podem exigir assistência técnica especializada.</p>
-  </div>
-  </div>
-  </div>
-
-
-  <!-- fim -->
-  <div id="contato" class="centralizado">
-  <section class="container">
-    <header>Prencha o Formulario</header>
-    <form id="formulario" class="form" action="#">
-        <div class="input-box">
-            <label>Nome</label>
-            <input required="" id="nome" name="nome" placeholder="Digite seu nome" type="text" >
-        </div>
-        <div class="column">
-            <div class="input-box">
-              <label>Telefone</label>
-              <input required="" id="telefone" name="telefone" placeholder="Digite seu número" type="telephone">
+    <footer>
+        <div class="footer-info">
+            <div class="footer-item">
+                <span>📞</span> (61) 99211-4959
             </div>
-            <div class="input-box">
-              <label>Email</label>
-              <input required="" id="email" name="email" placeholder="Digite seu email" type="email">
+            <div class="footer-item">
+                <span>✉️</span> josemsd@gmail.com
             </div>
         </div>
-        
-        <div class="input-box address">
-          <label for="opcao">Gostaria de fazer:</label>
-          <select id="opcao" name="opcao">
-            <option value="um Orçamento">Orçamento</option>
-            <option value="uma Sugestão">Sugestão</option>
-            <option value="uma Reclamação">Reclamação</option>
-            <option value="Outros">Outros</option>
-          </select>
-        
-       
-          <div class="column">
-            <div class="select-box">
-              
-      <select id="cidade" name="cidade">
-        <option value="" disabled selected>Selecione sua cidade</option>
-        <option value="asa noste">Asa Norte</option>
-        <option value="asa sul">Asa Sul</option>
-        <option value="lago norte">Lago Norte </option>
-        <option value="lago sul">Lago Sul</option>
-        <option value="aguas claras">Àguas Claras</option>
-        <option value="jardim botanico">Jardim Botânico</option>
-        <option value="sudoeste">Sudoeste</option>
-        <option value="cruzeiro">Cruzeiro</option>
-        <option value="noroeste">Noroeste</option>
-      </select>
-      
-            </div> 
-            <label for="textarea">Mensagem:</label>
-        <textarea name="textarea" id="textarea" cols="70" rows="5" placeholder="Informe aqui sua mensagem."></textarea>  
-        </div>
-        
-        </div>
-       
-      
-        <div class="button-container">
-          <input type="submit" value="Enviar">
-          <input type="button" value="Limpar" onclick="limparFormulario()">
-        </div>
-    </form>
-  </section>
-  </div>
+        <p>2026 © JLTech Informática | Todos os direitos reservados.</p>
+    </footer>
 
+    <button id="back-to-top">↑</button>
 
-  <script>
-    document.getElementById('formulario').addEventListener('submit', function (event) {
-      event.preventDefault();
+    <script>
+        // Inicialização do AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
 
-      const nome = document.getElementById('nome').value;
-      const email = document.getElementById('email').value;
-      const opcao = document.getElementById('opcao').value;
-      const cidade = document.getElementById('cidade').value;
-      const telefone = document.getElementById('telefone').value;
-      const textarea = document.getElementById('textarea').value;
+        // Lógica do Acordeão
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                
+                button.classList.toggle('active');
 
+                if (button.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = 0;
+                }
 
-      const urlWhatsApp = `https://wa.me/5561992114959?text=Olá, meu nome é ${nome}.%0A%0AMeu email é ${email} e meu telefone é ${telefone}.%0A%0AGostaria de fazer ${opcao}%0A%0A Minha cidade é ${cidade}%0A%0A${textarea}`;
-      window.open(urlWhatsApp, '_blank');
-    });
-  </script>
-  <script>
-    function limparFormulario(){
-      document.getElementById("formulario").reset();
-    }
-  </script>
-  <!-- URL do whatsapp, para acrescentar a quebra de linha utilizar %0A -->
-  <!-- fim -->
+                // Fecha outros itens (opcional)
+                document.querySelectorAll('.accordion-button').forEach(otherButton => {
+                    if (otherButton !== button && otherButton.classList.contains('active')) {
+                        otherButton.classList.remove('active');
+                        otherButton.nextElementSibling.style.maxHeight = 0;
+                    }
+                });
+            });
+        });
 
- 
-   <footer>
-    <div class="contato">
+        // Botão Voltar ao Topo
+        const backToTopBtn = document.getElementById("back-to-top");
+        window.onscroll = () => {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+        backToTopBtn.onclick = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
 
-      <img src="img/icone whatsapp.svg"/>
-      <p>(61)992114959</p>
-      <img src="img/icone email.svg"/>
-      <p>josemsd@gmail.com</p>   
-    </div> 
-    <p> 2023 © JLTech </p> 
-   </footer>
+        // Envio WhatsApp
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const tel = document.getElementById('telefone').value;
+            const opcao = document.getElementById('opcao').value;
+            const cidade = document.getElementById('cidade').value;
+            const msg = document.getElementById('mensagem').value;
 
+            const texto = `Olá! Meu nome é *${nome}*.\n` +
+                          `Contato: ${tel} | ${email}\n` +
+                          `Assunto: *${opcao}*\n` +
+                          `Local: ${cidade}\n\n` +
+                          `*Mensagem:* ${msg}`;
+            
+            const url = `https://wa.me/5561992114959?text=${encodeURIComponent(texto)}`;
+            window.open(url, '_blank');
+        });
 
-  <script src="script.js"></script>
+        // Integração com a API do Gemini para o Assistente de Diagnóstico
+        const apiKey = ""; // A chave API é fornecida automaticamente no ambiente de execução
 
+        async function fetchWithRetry(url, options, maxRetries = 5) {
+            let delay = 1000;
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    return await response.json();
+                } catch (error) {
+                    if (i === maxRetries - 1) throw error;
+                    await new Promise(res => setTimeout(res, delay));
+                    delay *= 2; // Backoff exponencial: 1s, 2s, 4s, 8s, 16s
+                }
+            }
+        }
+
+        document.getElementById('ai-btn').addEventListener('click', async () => {
+            const inputEl = document.getElementById('ai-input');
+            const outputEl = document.getElementById('ai-output');
+            const btnEl = document.getElementById('ai-btn');
+            const userText = inputEl.value.trim();
+
+            if (!userText) return;
+
+            // Estado de carregamento
+            btnEl.disabled = true;
+            btnEl.innerHTML = 'A analisar possíveis causas... ⏳';
+            btnEl.style.opacity = '0.7';
+            outputEl.style.display = 'block';
+            outputEl.innerHTML = '<em>A consultar a nossa base de conhecimento técnico...</em>';
+
+            try {
+                const systemPrompt = "És um assistente técnico informático muito prestável da empresa 'JLSTech'. O utilizador vai descrever um problema informático. A tua tarefa é fornecer um diagnóstico preliminar, enumerando até 3 possíveis causas em tópicos curtos. Usa um tom amigável e profissional, focado no cliente de Portugal. No final, sugere SEMPRE que o utilizador preencha o formulário de contacto abaixo para que a JLSTech possa resolver o problema de forma especializada.";
+                
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+                const payload = {
+                    contents: [{ parts: [{ text: userText }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                    generationConfig: { temperature: 0.7 }
+                };
+
+                const result = await fetchWithRetry(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const aiText = result.candidates?.[0]?.content?.parts?.[0]?.text || "Lamentamos, não foi possível obter uma resposta.";
+                
+                // Formatação simples de Markdown para HTML
+                const formattedText = aiText
+                    .replace(/\n/g, '<br>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+                outputEl.innerHTML = formattedText;
+
+            } catch (error) {
+                outputEl.innerHTML = '<strong style="color: red;">Erro na análise:</strong> Não foi possível ligar ao nosso assistente no momento. Por favor, utilize o formulário de contacto abaixo.';
+                console.error("Erro no Gemini API:", error);
+            } finally {
+                // Restaurar o botão
+                btnEl.disabled = false;
+                btnEl.innerHTML = 'Analisar Problema ✨';
+                btnEl.style.opacity = '1';
+            }
+        });
+    </script>
 </body>
-
 </html>
+
+
+
