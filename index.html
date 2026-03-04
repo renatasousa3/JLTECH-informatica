@@ -302,6 +302,21 @@
             font-size: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000;
         }
 
+        /* --- RESPONSIVIDADE PARA TELAS GRANDES (Monitores Wide/1920x1080) --- */
+        @media (min-width: 1440px) {
+            .content-main { max-width: 1400px; } /* Aumenta a largura útil */
+            .title h1 { font-size: 2rem; margin-top: 8rem; }
+            .title h2 { font-size: 4.8rem; line-height: 1.1; margin-bottom: 2rem; }
+            .title p { font-size: 1.4rem; max-width: 800px; margin-bottom: 3rem; }
+            .main-btn { padding: 18px 45px; font-size: 1.25rem; }
+            .badge { font-size: 1.1rem; padding: 10px 20px; }
+            .badge svg { width: 22px; height: 22px; }
+            
+            /* Ajustes extras para a seção sobre mim em monitores grandes */
+            .text-about { font-size: 3.5rem; }
+            .text-p { font-size: 1.2rem; }
+        }
+
         /* --- RESPONSIVIDADE RIGOROSA (Mobile e Tablets) --- */
         @media (max-width: 992px) {
             .about-content { flex-direction: column; }
@@ -621,7 +636,7 @@
             <div class="footer-item"><span>📞</span> (61) 99211-4959</div>
             <div class="footer-item"><span>✉️</span> josemsd@gmail.com</div>
         </div>
-        <p>2026 © JLSTech Informática | Todos os direitos reservados.</p>
+        <p>2026 © JLTech Informática | Todos os direitos reservados.</p>
     </footer>
 
     <a href="https://api.whatsapp.com/send?phone=5561992114959&text=Ol%C3%A1!%20Visitei%20o%20site%20da%20JLSTech%20e%20gostaria%20de%20ajuda." target="_blank" class="whatsapp-float">
